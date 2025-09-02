@@ -3,9 +3,11 @@
 
 #include "Menus.h"
 
-class SpecialsMenu : public Menu {
+class SpecialsMenu : public Menus {
     public:
-        void notifyObservers(std::string message) override {
+        void addPizza(Pizza* pizza) override;
+        void removePizza(Pizza* pizza) override;
+        void notifyObservers(std::string message) const override {
             // Update the specials menu based on the message
         }
 };

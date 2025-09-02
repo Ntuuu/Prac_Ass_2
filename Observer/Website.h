@@ -2,12 +2,14 @@
 #define WEBSITE_H
 
 #include "Observer.h"
+#include "PizzaMenu.h"
+#include "SpecialsMenu.h"
 
 class Website : public Observer {
     public:
-        void update(std::string message) override {
-            // Update the website view based on the message
-        }
+        Website();
+        void update(std::string message) override;
+        void toString(PizzaMenu* menu, SpecialsMenu* specials) const;
 };
 
 #endif

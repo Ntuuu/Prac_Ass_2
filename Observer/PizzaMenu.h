@@ -3,10 +3,12 @@
 
 #include "Menus.h"
 
-class PizzaMenu : public Menu {
+class PizzaMenu : public Menus {
     public:
-        void notifyObservers(std::string message) override {
-            // Update the pizza menu based on the message
+        void addPizza(Pizza* pizza) override;
+        void removePizza(Pizza* pizza) override;
+        void notifyObservers(std::string message) const override {
+            std::cout << message << std::endl;
         }
 };
 

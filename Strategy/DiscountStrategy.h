@@ -3,6 +3,8 @@
 
 
 class DiscountStrategy {
+    protected:
+        double currentPrice;
     public:
         virtual double applyDiscount() const = 0;
 };

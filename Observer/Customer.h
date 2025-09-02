@@ -2,12 +2,20 @@
 #define CUSTOMER_H
 
 #include "Observer.h"
+#include "Order.h"
+#include "DiscountStrategy.h"
+#include "BulkDiscount.h"
+#include "RegularPrice.h"
+#include "FamilyDiscount.h"
 
 class Customer : public Observer {
+    private:
+        std::vector<Order*> orders;
+        int wantScore;
     public:
-        void update(std::string message) override {
-            // Update the customer view based on the message
-        }
+        Customer();
+        void update(std::string message) override;
+        void makeOrder(Pizza* pizza, PizzaMenu* menu, SpecialsMenu* specials);
 };
 
 #endif
