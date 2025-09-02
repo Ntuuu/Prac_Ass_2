@@ -8,6 +8,8 @@
 #include "RegularPrice.h"
 #include "FamilyDiscount.h"
 
+class Order;
+
 class Customer : public Observer {
     private:
         std::vector<Order*> orders;

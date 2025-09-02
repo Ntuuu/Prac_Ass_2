@@ -7,9 +7,7 @@ class SpecialsMenu : public Menus {
     public:
         void addPizza(Pizza* pizza) override;
         void removePizza(Pizza* pizza) override;
-        void notifyObservers(std::string message) const override {
-            // Update the specials menu based on the message
-        }
+        void notifyObservers(std::string message) const override;
 };
 
 #endif

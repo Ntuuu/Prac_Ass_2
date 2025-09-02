@@ -44,6 +44,7 @@ void Customer::makeOrder(Pizza* pizza, PizzaMenu* menu, SpecialsMenu* specials) 
         for (int i = 0; i < 5; i++) {
             makeOrder(pizza, menu, specials);
         }
+        delete bulk;
     } else if (this->state == "Bulk and Family") {
         FamilyDiscount* family = new FamilyDiscount();
         BulkDiscount* bulk = new BulkDiscount();
@@ -54,17 +55,22 @@ void Customer::makeOrder(Pizza* pizza, PizzaMenu* menu, SpecialsMenu* specials) 
         for (int i = 0; i < 5; i++) {
             makeOrder(pizza, menu, specials);
         }
+        delete family;
+        delete bulk;
     } else if (this->state == "Family") {
         FamilyDiscount* family = new FamilyDiscount();
         std::cout << "Family order placed for pizza: " << pizza->getName() << std::endl;
         double discount = pizza->getPrice() * family->applyDiscount();
         pizza->setPrice(discount);
+        delete family;
     } else if (this->state == "Default") {
         RegularPrice* regularPrice = new RegularPrice();
         std::cout << "Regular order placed for pizza: " << pizza->getName() << std::endl;
         double discount = pizza->getPrice() * regularPrice->applyDiscount();
         pizza->setPrice(discount);
+        delete regularPrice;
     }
     newOrder->setOrder(pizza, menu, specials);
     this->orders.push_back(newOrder);
+    delete newOrder;
 }

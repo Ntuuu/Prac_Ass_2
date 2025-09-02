@@ -7,9 +7,7 @@ class PizzaMenu : public Menus {
     public:
         void addPizza(Pizza* pizza) override;
         void removePizza(Pizza* pizza) override;
-        void notifyObservers(std::string message) const override {
-            std::cout << message << std::endl;
-        }
+        void notifyObservers(std::string message) const override;
 };
 
 #endif

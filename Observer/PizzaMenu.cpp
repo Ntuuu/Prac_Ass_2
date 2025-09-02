@@ -6,8 +6,13 @@ void PizzaMenu::addPizza(Pizza* pizza) {
 }
 
 void PizzaMenu::removePizza(Pizza* pizza) {
-    pizzas.erase(std::remove(pizzas.begin(), pizzas.end(), pizza), pizzas.end());
     notifyObservers("Pizza Removed");
+    for (auto it = pizzas.begin(); it != pizzas.end(); ++it) {
+        if (*it == pizza) {
+            pizzas.erase(it);
+            break;
+        }
+    }
 }
 
 void PizzaMenu::notifyObservers(std::string message) const {
